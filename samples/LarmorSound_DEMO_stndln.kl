@@ -1,0 +1,79 @@
+/*****************************************************************************
+ * LarmorSound for FabricEngine v.1.0 Beta 04/11/2016
+ * Copyright (c) 2016 Pier Paolo Ciarravano - http://www.larmor.com
+ * All rights reserved.
+ *
+ * This file is part of LarmorSound Fabric Engine Extension.
+ *
+ * Author: Pier Paolo Ciarravano
+ *
+ * This software is provided 'as-is', without any express or implied
+ * warranty. In no event will the authors be held liable for any damages
+ * arising from the use of this software.
+ *
+ ****************************************************************************/
+
+require Math;
+require OpenImageIO;
+require Images;
+require FileIO;
+
+require LarmorSound;
+
+operator entry() {
+
+    String in_filename = "/home/test/sample.mp3";
+    String out_filename = "test_spectrum.jpg";
+
+    // Check in_filename exists
+    FilePath filepath = FilePath(in_filename);
+    if (!filepath.isRegularFile()) {
+        report("File name: " + in_filename + " is not a regular file");
+        return;
+    }
+
+    // Object creation
+    LarmorSound ls = LarmorSound(in_filename);
+    UInt32 ns = ls.getNumSamples();
+    report("Num Samples: " + ns);
+
+    // read spectrum
+    UInt32 num_blocks = ns / 1024; // one block is 1024 samples
+
+    UInt32 resX = num_blocks;
+    UInt32 resY = 512;
+
+    Image2DColor image = Image2DColor();
+    image.resize(resX, resY);
+    for (UInt32 i=0; i<image.pixels.size(); i++)
+        image.pixels[i].set(0.0, 0.0, 0.0, 0.0);
+
+    // Create image content
+    report("Creating Image...");
+    for(UInt32 i=0; i < num_blocks; i++) {
+        //report("Read Block: " + i);
+        UInt32 position = i * 1024;
+        Float32 spectrum<> = ls.getChannelSpectrum(0, position);
+        for (UInt32 y=0; y<resY; y++) {
+            Float32 val = spectrum[511-y]/20.0;
+            image.pixels[y*resX + i].set(val, 0, 0, 0.0);
+        }
+    }
+
+    // Saving image
+    report("Saving Image...");
+    OpenImageTypeDesc desc(OpenImage_BASETYPE_FLOAT, OpenImage_AGGREGATE_SCALAR, OpenImage_VECSEMANTICS_NOXFORM);
+    OpenImageSpec spec(image.width, image.height, 4, desc);
+    OpenImageOutput file();
+    if( !file.create(out_filename) || !file.open(out_filename, spec) ) {
+        report("ERROR: unable to open image file.");
+        return;
+    }
+    if(file.write_image(desc, image.pixels.data(), 0, 0, 0))
+        report("Created Image out_filename: " + out_filename);
+    else
+        report("ERROR: write error.");
+
+    file.close();
+
+}
