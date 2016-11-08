@@ -5,7 +5,7 @@ Sound spectrum, samples and playback extension for Fabric Engine
 Author: Pier Paolo Ciarravano [http://www.larmor.com](http://www.larmor.com)
 
 Video demo: TODO
-[![LarmorSound demo sample](https://vimeo.com/190653588)](https://vimeo.com/190653588)
+[![Watch the video demo: LarmorSound on Fabric Canvas](https://vimeo.com/190653588)](https://vimeo.com/190653588)
 
 
 ### Features:
@@ -18,7 +18,7 @@ Video demo: TODO
 * Audio playback reproduction: Fabric Canvas play and stop buttons integrated using internal frame “heartbeat” sync
 * Fabric Canvas and KL demo samples provided
 
-![alt text](https://github.com/ppciarravano/larmorsound/doc/images/screenshot_canvas_mid.png "Fabric Canvas screenshot")
+![LarmorSound - Fabric Canvas Demo screenshot](https://github.com/ppciarravano/larmorsound/raw/master/doc/images/screenshot_canvas_mid.png "LarmorSound - Fabric Canvas Demo screenshot")
 
 The extension is now just available for Linux x86_64, and it will be soon available for Max OS X and Windows.
 
