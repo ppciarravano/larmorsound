@@ -33,7 +33,7 @@ External required library dependencies for Linux build x86_64:
 
 Download the tgz file for Linux [here](https://github.com/ppciarravano/larmorsound/blob/master/builds/linux/LarmorSound_1.0-Linux-x86_64.tgz).
 
-Extract the tgz file in the directory specified by $FABRIC_EXTS_PATH e.g.:
+Extract the tgz file in a directory specified by $FABRIC_EXTS_PATH e.g.:
 ```
 /opt/FabricEngine-2.3.0-Linux-x86_64/Exts/LarmorSound
 ```
