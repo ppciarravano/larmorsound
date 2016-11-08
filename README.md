@@ -1,4 +1,4 @@
-# LarmorSound v.1.0 Beta extension for FabricEngine
+# LarmorSound v.1.0 Beta extension for Fabric Engine
 
 Sound spectrum, samples and playback extension for Fabric Engine
 
