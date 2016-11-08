@@ -20,6 +20,8 @@ Video demo: TODO
 
 ![alt text](https://github.com/ppciarravano/larmorsound/doc/images/screenshot_canvas_mid.png "Fabric Canvas screenshot")
 
+The extension is now just available for Linux x86_64, and it will be soon available for Max OS X and Windows.
+
 
 ### Installation for Fabric Engine 2.3.0 on Linux:
 
