@@ -1,6 +1,6 @@
-# LarmorSound v.1.0 Beta extension for Fabric Engine
+# LarmorSound v.1.0 Beta for Fabric Engine
 
-Sound spectrum, samples and playback for Fabric Engine
+Sound spectrum, samples and playback extension for Fabric Engine
 
 Author: Pier Paolo Ciarravano [http://www.larmor.com](http://www.larmor.com)
 
