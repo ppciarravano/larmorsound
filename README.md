@@ -4,7 +4,7 @@ Sound spectrum, samples and playback extension for Fabric Engine
 
 Author: Pier Paolo Ciarravano [http://www.larmor.com](http://www.larmor.com)
 
-[Watch the video demo: LarmorSound on Fabric Canvas](https://vimeo.com/190653588)
+[Watch the video demo: LarmorSound on Fabric Canvas https://vimeo.com/190653588](https://vimeo.com/190653588)
 
 
 ### Features:
