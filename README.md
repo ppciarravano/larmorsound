@@ -4,8 +4,7 @@ Sound spectrum, samples and playback extension for Fabric Engine
 
 Author: Pier Paolo Ciarravano [http://www.larmor.com](http://www.larmor.com)
 
-Video demo: TODO
-[![Watch the video demo: LarmorSound on Fabric Canvas](https://vimeo.com/190653588)](https://vimeo.com/190653588)
+[Watch the video demo: LarmorSound on Fabric Canvas](https://vimeo.com/190653588)
 
 
 ### Features:
@@ -31,6 +30,8 @@ External required library dependencies for Linux build x86_64:
 * libavformat >= 52.3.0
 * libavutil >= 52.3.0
 * libavresample >= 1.0.1
+
+Download the tgz file for Linux [here](https://github.com/ppciarravano/larmorsound/blob/master/builds/linux/LarmorSound_1.0-Linux-x86_64.tgz).
 
 Extract the tgz file in the directory specified by $FABRIC_EXTS_PATH e.g.:
 ```
