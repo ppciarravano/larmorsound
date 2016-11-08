@@ -26,10 +26,12 @@ The extension is now just available for Linux x86_64, and it will be soon availa
 
 External required library dependencies for Linux build x86_64:
 * SDL2 >= 2.0.4
-* libavcodec >= 54.35.0
-* libavformat >= 52.3.0
-* libavutil >= 52.3.0
-* libavresample >= 1.0.1
+* libavcodec >= 54.35.0 (part of ffmpeg-libs)
+* libavformat >= 52.3.0 (part of ffmpeg-libs)
+* libavutil >= 52.3.0 (part of ffmpeg-libs)
+* libavresample >= 1.0.1 (part of ffmpeg-libs)
+
+The extension uses [Aubio](http://aubio.org/) lib and the proprietary LarmorSoundAPI lib, both are deployed in the builds.
 
 Download the tgz file for Linux [here](https://github.com/ppciarravano/larmorsound/blob/master/builds/linux/LarmorSound_1.0-Linux-x86_64.tgz).
 
