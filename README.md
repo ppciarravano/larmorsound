@@ -17,7 +17,7 @@ Author: Pier Paolo Ciarravano [http://www.larmor.com](http://www.larmor.com)
 * Audio playback reproduction: Fabric Canvas play and stop buttons integrated using internal frame “heartbeat” sync
 * Fabric Canvas and KL demo samples provided
 
-![LarmorSound - Fabric Canvas Demo screenshot](https://github.com/ppciarravano/larmorsound/raw/master/doc/images/screenshot_canvas_mid.png "LarmorSound - Fabric Canvas Demo screenshot")
+[![LarmorSound - Fabric Canvas Demo screenshot](https://github.com/ppciarravano/larmorsound/raw/master/doc/images/screenshot_canvas_mid.png)](https://raw.githubusercontent.com/ppciarravano/larmorsound/master/doc/images/screenshot_canvas.png)
 
 The extension is now just available for Linux x86_64, and it will be soon available for Max OS X and Windows.
 
