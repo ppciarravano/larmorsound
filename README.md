@@ -5,7 +5,7 @@ Sound spectrum, samples and playback extension for [Fabric Engine](http://fabric
 Author: Pier Paolo Ciarravano [http://www.larmor.com](http://www.larmor.com)
 
 [Watch the video demo: LarmorSound on Fabric Canvas https://vimeo.com/190653588](https://vimeo.com/190653588)
-
+and [Watch the video demo: LarmorSound on Fabric Canvas https://vimeo.com/190653588](https://vimeo.com/190653588)
 
 ### Features:
 
@@ -15,12 +15,22 @@ Author: Pier Paolo Ciarravano [http://www.larmor.com](http://www.larmor.com)
 * Audio energy in time per each channel
 * Numeric samples output per channel
 * Audio playback reproduction: Fabric Canvas play and stop buttons integrated using internal frame “heartbeat” sync
-* Fabric Canvas and KL demo samples provided
+* Fabric Canvas, Maya and KL demo samples provided
+* Windows and Linux versions (Mac OS X version available on January 2017)
 
-[![LarmorSound - Fabric Canvas Demo screenshot](https://github.com/ppciarravano/larmorsound/raw/master/doc/images/screenshot_canvas_mid.png)](https://raw.githubusercontent.com/ppciarravano/larmorsound/master/doc/images/screenshot_canvas.png)
+[![LarmorSound - Fabric Canvas Demo screenshot on Linux](https://github.com/ppciarravano/larmorsound/raw/master/doc/images/screenshot_canvas_mid.png)](https://raw.githubusercontent.com/ppciarravano/larmorsound/master/doc/images/screenshot_canvas.png)
 
-The extension is now just available for Linux x86_64, and it will be soon available for Max OS X and Windows.
+[![LarmorSound - Fabric Maya Demo screenshot on Windows](https://github.com/ppciarravano/larmorsound/raw/master/doc/images/screenshot_canvas_maya_mid.png)](https://raw.githubusercontent.com/ppciarravano/larmorsound/master/doc/images/screenshot_canvas_maya.png)
 
+The extension is available for Windows and Linux x86_64, and it will be available for Max OS X on January 2017.
+
+
+### Installation for Fabric Engine 2.3.1 on Windows x86_64:
+
+Extract the zip file in the directory specified by SET FABRIC_EXTS_PATH in your environment.bat e.g.:
+```
+C:\FabricEngine-2.3.1-Windows-x86_64\Exts\LarmorSound
+```
 
 ### Installation for Fabric Engine 2.3.0 on Linux:
 
@@ -47,7 +57,11 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/FabricEngine-2.3.0-Linux-x86_64/Ext
 
 ### Run Samples:
 
-Open the file LarmorSound_DEMO_SpectrumViewer.canvas from Fabric Canvas.
+Examples are at [https://github.com/ppciarravano/larmorsound/tree/master/samples](https://github.com/ppciarravano/larmorsound/tree/master/samples)
+
+LarmorSound_DEMO_SpectrumViewer.canvas : example for Fabric Canvas.
+LarmorSound_DEMO_plate_Canvas.canvas : example for Fabric Canvas.
+LarmorSound_DEMO_plate_Maya_2017.mb : example for Autodesk Maya 2017.
 
 For KL demo: edit the file LarmorSound_DEMO_stndln.kl replacing the media filename and execute:
 
@@ -57,12 +71,28 @@ kl LarmorSound_DEMO_stndln.kl
 
 ### License:
 
+LarmorSound 1.0 Beta 2016: Extension for Fabric Engine
 Copyright (c) 2016 Pier Paolo Ciarravano
 [http://www.larmor.com](http://www.larmor.com)
 All rights reserved.
 
-This software is provided 'as-is', without any express or implied
-warranty. In no event will the authors be held liable for any damages
-arising from the use of this software.
+LarmorSound is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+LarmorSound is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with LarmorSound. If not, see <http://www.gnu.org/licenses/>.
+
+Licensees holding a valid commercial license may use this file in
+accordance with the commercial license agreement provided with the
+software.
+
+Source code is provided on email request.
 
 ---
