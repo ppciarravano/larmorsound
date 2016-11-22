@@ -18,9 +18,9 @@ and [LarmorSound on Linux Fabric Canvas https://vimeo.com/190653588](https://vim
 * Fabric Canvas, Maya and KL demo samples provided
 * Windows and Linux versions (Mac OS X version available on January 2017)
 
-[![LarmorSound - Fabric Canvas Demo screenshot on Linux](https://github.com/ppciarravano/larmorsound/raw/master/doc/images/screenshot_canvas_mid.png)](https://raw.githubusercontent.com/ppciarravano/larmorsound/master/doc/images/screenshot_canvas.png)
-
 [![LarmorSound - Fabric Maya Demo screenshot on Windows](https://github.com/ppciarravano/larmorsound/raw/master/doc/images/screenshot_canvas_maya_mid.png)](https://raw.githubusercontent.com/ppciarravano/larmorsound/master/doc/images/screenshot_canvas_maya.png)
+
+[![LarmorSound - Fabric Canvas Demo screenshot on Linux](https://github.com/ppciarravano/larmorsound/raw/master/doc/images/screenshot_canvas_mid.png)](https://raw.githubusercontent.com/ppciarravano/larmorsound/master/doc/images/screenshot_canvas.png)
 
 The extension is available for Windows and Linux x86_64, and it will be available for Max OS X on January 2017.
 
@@ -72,8 +72,11 @@ kl LarmorSound_DEMO_stndln.kl
 ### License:
 
 LarmorSound 1.0 Beta 2016: Extension for Fabric Engine
+
 Copyright (c) 2016 Pier Paolo Ciarravano
+
 [http://www.larmor.com](http://www.larmor.com)
+
 All rights reserved.
 
 LarmorSound is free software: you can redistribute it and/or modify
@@ -92,6 +95,7 @@ along with LarmorSound. If not, see <http://www.gnu.org/licenses/>.
 Licensees holding a valid commercial license may use this file in
 accordance with the commercial license agreement provided with the
 software.
+
 
 Source code is provided on email request.
 
