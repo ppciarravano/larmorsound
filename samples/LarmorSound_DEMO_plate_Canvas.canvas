@@ -1,0 +1,2307 @@
+{
+  "objectType" : "Graph",
+  "metadata" : {
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.847273051738739,\n    \"y\" : 0.1840796619653702,\n    \"z\" : -0.4982341229915619,\n    \"t\" : -89.21099090576172\n    },\n  \"row1\" : {\n    \"x\" : 2.46688214247115e-05,\n    \"y\" : 0.9379326701164246,\n    \"z\" : 0.3466294705867767,\n    \"t\" : 66.19126129150391\n    },\n  \"row2\" : {\n    \"x\" : 0.5311535596847534,\n    \"y\" : -0.2936794459819794,\n    \"z\" : 0.7947452664375305,\n    \"t\" : 141.2736511230469\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "timeline_start" : "1",
+    "timeline_loopMode" : "0",
+    "uiGraphZoom" : "{\n  \"value\" : 0.2508879899978638\n  }",
+    "timeline_simMode" : "0",
+    "camera_focalDistance" : "204.4095458984375",
+    "timeline_current" : "1",
+    "timeline_end" : "10000",
+    "uiGraphPan" : "{\n  \"x\" : 596.5889892578125,\n  \"y\" : 89.55998992919922\n  }"
+    },
+  "title" : "",
+  "ports" : [
+    {
+      "objectType" : "ExecPort",
+      "name" : "exec",
+      "nodePortType" : "IO",
+      "execPortType" : "IO",
+      "typeSpec" : "Execute"
+      },
+    {
+      "objectType" : "ExecPort",
+      "name" : "timeline",
+      "nodePortType" : "Out",
+      "execPortType" : "In",
+      "typeSpec" : "SInt32"
+      },
+    {
+      "objectType" : "ExecPort",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "name" : "filename",
+      "nodePortType" : "Out",
+      "execPortType" : "In",
+      "typeSpec" : "FilePath"
+      },
+    {
+      "objectType" : "ExecPort",
+      "name" : "frame",
+      "nodePortType" : "In",
+      "execPortType" : "Out",
+      "typeSpec" : "SInt32"
+      },
+    {
+      "objectType" : "ExecPort",
+      "name" : "ls_position",
+      "nodePortType" : "In",
+      "execPortType" : "Out",
+      "typeSpec" : "UInt32"
+      },
+    {
+      "objectType" : "ExecPort",
+      "name" : "time",
+      "nodePortType" : "In",
+      "execPortType" : "Out",
+      "typeSpec" : "Float64"
+      },
+    {
+      "objectType" : "ExecPort",
+      "name" : "num_samples",
+      "nodePortType" : "In",
+      "execPortType" : "Out",
+      "typeSpec" : "UInt32"
+      },
+    {
+      "objectType" : "ExecPort",
+      "name" : "num_channels",
+      "nodePortType" : "In",
+      "execPortType" : "Out",
+      "typeSpec" : "UInt8"
+      },
+    {
+      "objectType" : "ExecPort",
+      "name" : "this",
+      "nodePortType" : "In",
+      "execPortType" : "Out",
+      "typeSpec" : "DrawingHandle"
+      },
+    {
+      "objectType" : "ExecPort",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "name" : "batch_render_mode",
+      "nodePortType" : "Out",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "ExecPort",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(1, 50)"
+        },
+      "name" : "fps",
+      "nodePortType" : "Out",
+      "execPortType" : "In",
+      "typeSpec" : "Float64"
+      }
+    ],
+  "extDeps" : {
+    "LarmorSound" : "*"
+    },
+  "nodes" : [
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-1109.75910616,\"y\":-105.868834972}"
+        },
+      "name" : "LarmorSound_Player",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "name" : "exec",
+          "nodePortType" : "IO"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "timeline",
+          "nodePortType" : "IO"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "filename",
+          "nodePortType" : "In"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "time",
+          "nodePortType" : "Out"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "num_samples",
+          "nodePortType" : "Out"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "num_channels",
+          "nodePortType" : "Out"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "ls_position",
+          "nodePortType" : "Out"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "ls_obj",
+          "nodePortType" : "Out"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "batch_render_mode",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Boolean" : true
+            }
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "fps",
+          "nodePortType" : "In"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Graph",
+        "metadata" : {
+          "uiGraphZoom" : "{\n  \"value\" : 0.4643990993499756\n  }",
+          "uiGraphPan" : "{\n  \"x\" : 128.3630905151367,\n  \"y\" : 66.00355529785156\n  }"
+          },
+        "title" : "LarmorSound_Player",
+        "ports" : [
+          {
+            "objectType" : "ExecPort",
+            "name" : "exec",
+            "nodePortType" : "IO",
+            "execPortType" : "IO",
+            "typeSpec" : "Execute"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "timeline",
+            "nodePortType" : "IO",
+            "execPortType" : "IO"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "filename",
+            "nodePortType" : "Out",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "time",
+            "nodePortType" : "In",
+            "execPortType" : "Out"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "num_samples",
+            "nodePortType" : "In",
+            "execPortType" : "Out"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "num_channels",
+            "nodePortType" : "In",
+            "execPortType" : "Out"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "ls_position",
+            "nodePortType" : "In",
+            "execPortType" : "Out"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "ls_obj",
+            "nodePortType" : "In",
+            "defaultValues" : {
+              "LarmorSound" : null
+              },
+            "execPortType" : "Out",
+            "typeSpec" : "LarmorSound"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "batch_render_mode",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            },
+          {
+            "objectType" : "ExecPort",
+            "metadata" : {
+              "uiRange" : "(1, 50)"
+              },
+            "name" : "fps",
+            "nodePortType" : "Out",
+            "defaultValues" : {
+              "Float64" : 24
+              },
+            "execPortType" : "In",
+            "typeSpec" : "Float64"
+            }
+          ],
+        "extDeps" : {},
+        "nodes" : [
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1112.07809448,\"y\":-80.2470245361}"
+              },
+            "name" : "LarmorSound_Sync",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "name" : "exec",
+                "nodePortType" : "IO"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "frame",
+                "nodePortType" : "IO"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "ls_obj",
+                "nodePortType" : "In"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "ls_position",
+                "nodePortType" : "In"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "batch_render_mode",
+                "nodePortType" : "In"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "ls_position_out",
+                "nodePortType" : "Out"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "metadata" : {
+                "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+                "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }"
+                },
+              "title" : "check_play",
+              "ports" : [
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "exec",
+                  "nodePortType" : "IO",
+                  "execPortType" : "IO",
+                  "typeSpec" : "Execute"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "frame",
+                  "nodePortType" : "IO",
+                  "execPortType" : "IO",
+                  "typeSpec" : "SInt32"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "ls_obj",
+                  "nodePortType" : "Out",
+                  "execPortType" : "In",
+                  "typeSpec" : "LarmorSound"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "ls_position",
+                  "nodePortType" : "Out",
+                  "execPortType" : "In",
+                  "typeSpec" : "UInt32"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "batch_render_mode",
+                  "nodePortType" : "Out",
+                  "execPortType" : "In",
+                  "typeSpec" : "Boolean"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "ls_position_out",
+                  "nodePortType" : "In",
+                  "execPortType" : "Out",
+                  "typeSpec" : "UInt32"
+                  }
+                ],
+              "extDeps" : {},
+              "code" : "require Singletons;
+require LarmorSound;
+
+dfgEntry {
+    
+  if (batch_render_mode) {
+      ls_position_out = ls_position;
+  } else {
+      // heartbeat
+      ls_obj.heartbeat();
+      ls_position_out = ls_obj.getPlayPosition();
+      //report(\"Heartbeat position: \" + ls_position_out);
+  } 
+  //report(\"Frame: \" + frame + \" ls_position_out:\" + ls_position_out);
+  
+  UInt64 startTime = 0;
+  LarmorSound_Counter lsc = null;
+  if(Singleton_has('larmorcounter')) {
+    lsc = Singleton_get('larmorcounter');
+  } else {
+      lsc = LarmorSound_Counter();
+      lsc.time = getCurrentTicks();
+      lsc.frame = frame;
+      Singleton_set('larmorcounter', lsc);
+      report(\"LarmorSound_Counter created\");
+  }
+  startTime = lsc.time;
+  
+  UInt64 endTime = getCurrentTicks();
+  Float64 timeElapsed = getSecondsBetweenTicks(startTime, endTime);
+  //report(\"Elapsed time: \" + timeElapsed + \" seconds frame: \" + frame + \" \" + lsc.frame);
+  lsc.time = getCurrentTicks();
+  lsc.frame = frame;
+  
+  if ((timeElapsed > 0.5) && (!batch_render_mode)) {
+    ls_obj.play(ls_position);
+  }
+}
+"
+              }
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":-106.723709106,\"y\":30.2636566162}"
+              },
+            "name" : "LarmorSound",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "name" : "exec",
+                "nodePortType" : "IO"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "filename",
+                "nodePortType" : "In"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "ls_obj",
+                "nodePortType" : "Out"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "title" : "LarmorSound",
+              "ports" : [
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "exec",
+                  "nodePortType" : "IO",
+                  "execPortType" : "IO",
+                  "typeSpec" : "Execute"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "filename",
+                  "nodePortType" : "Out",
+                  "execPortType" : "In",
+                  "typeSpec" : "FilePath"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "ls_obj",
+                  "nodePortType" : "In",
+                  "execPortType" : "Out",
+                  "typeSpec" : "LarmorSound"
+                  }
+                ],
+              "extDeps" : {},
+              "code" : "require Singletons;
+require LarmorSound;
+
+dfgEntry {
+
+  // finalize previous LarmorSound if exists
+  if(Singleton_has('larmorsound')) {
+    LarmorSound ls_prev = Singleton_get('larmorsound');
+    ls_prev.stop();
+    ls_prev.closePlay();
+  }
+
+  // create new instance of LarmorSound
+  if (filename.isRegularFile()) {
+    ls_obj = LarmorSound(filename);
+    Singleton_set('larmorsound', ls_obj);
+  } else {
+    report(\"File name: \" + filename + \" is not a regular file\");
+  }
+  
+}
+"
+              }
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":318.904876709,\"y\":73.9936294556}"
+              },
+            "name" : "Cache_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "name" : "exec",
+                "nodePortType" : "IO"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "value",
+                "nodePortType" : "In"
+                }
+              ],
+            "executable" : "Fabric.Core.Data.Cache",
+            "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":82.0403289795,\"y\":87.2546539307}"
+              },
+            "name" : "LarmorSound_Init",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "name" : "exec",
+                "nodePortType" : "IO"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "ls_obj",
+                "nodePortType" : "IO"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "title" : "LarmorSound_Init",
+              "ports" : [
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "exec",
+                  "nodePortType" : "IO",
+                  "execPortType" : "IO",
+                  "typeSpec" : "Execute"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "ls_obj",
+                  "nodePortType" : "IO",
+                  "execPortType" : "IO",
+                  "typeSpec" : "LarmorSound"
+                  }
+                ],
+              "extDeps" : {},
+              "code" : "dfgEntry {
+  ls_obj.initPlay();
+  ls_obj.setHeartbeatActive(true);
+  ls_obj.play(0);
+}
+"
+              }
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":178.109824181,\"y\":253.042137146}"
+              },
+            "name" : "FrameToTime_2",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "name" : "exec",
+                "nodePortType" : "IO"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "frame",
+                "nodePortType" : "In"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "fps",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Float64" : 24
+                  }
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "time",
+                "nodePortType" : "Out"
+                }
+              ],
+            "executable" : "Fabric.Compounds.Math.FrameToTime",
+            "presetGUID" : "FC97B76DD3597484D4308A5490FD1853"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":494.755203247,\"y\":155.549743652}"
+              },
+            "name" : "LarmorSound_Info",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "name" : "exec",
+                "nodePortType" : "IO"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "ls_obj",
+                "nodePortType" : "In"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "num_samples",
+                "nodePortType" : "Out"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "samplerate",
+                "nodePortType" : "Out"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "num_channels",
+                "nodePortType" : "Out"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "title" : "LarmorSound_Info",
+              "ports" : [
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "exec",
+                  "nodePortType" : "IO",
+                  "execPortType" : "IO",
+                  "typeSpec" : "Execute"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "ls_obj",
+                  "nodePortType" : "Out",
+                  "execPortType" : "In",
+                  "typeSpec" : "LarmorSound"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "num_samples",
+                  "nodePortType" : "In",
+                  "execPortType" : "Out",
+                  "typeSpec" : "UInt32"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "samplerate",
+                  "nodePortType" : "In",
+                  "execPortType" : "Out",
+                  "typeSpec" : "UInt32"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "num_channels",
+                  "nodePortType" : "In",
+                  "execPortType" : "Out",
+                  "typeSpec" : "UInt8"
+                  }
+                ],
+              "extDeps" : {},
+              "code" : "dfgEntry {
+  num_samples = ls_obj.getNumSamples();
+  samplerate = ls_obj.getSamplerate();
+  num_channels = ls_obj.getNumChannels();
+}
+"
+              }
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":729.129745483,\"y\":348.183532715}"
+              },
+            "name" : "GetLSPositions",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "name" : "exec",
+                "nodePortType" : "IO"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "samplerate",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Float64" : 10000
+                  }
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "time",
+                "nodePortType" : "In"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "ls_position",
+                "nodePortType" : "Out"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "metadata" : {
+                "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+                "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }"
+                },
+              "title" : "Mul",
+              "ports" : [
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "exec",
+                  "nodePortType" : "IO",
+                  "execPortType" : "IO",
+                  "typeSpec" : "Execute"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "samplerate",
+                  "nodePortType" : "Out",
+                  "execPortType" : "In",
+                  "typeSpec" : "UInt32"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "time",
+                  "nodePortType" : "Out",
+                  "execPortType" : "In",
+                  "typeSpec" : "Float64"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "ls_position",
+                  "nodePortType" : "In",
+                  "execPortType" : "Out",
+                  "typeSpec" : "UInt32"
+                  }
+                ],
+              "extDeps" : {},
+              "origPresetGUID" : "CC951B43BB879483B46EFF7965692350",
+              "code" : "
+dfgEntry {
+	ls_position = samplerate * time;
+}
+"
+              }
+            }
+          ],
+        "connections" : {
+          "timeline" : [
+            "LarmorSound_Sync.frame",
+            "FrameToTime_2.frame"
+            ],
+          "filename" : [
+            "LarmorSound.filename"
+            ],
+          "batch_render_mode" : [
+            "LarmorSound_Sync.batch_render_mode"
+            ],
+          "fps" : [
+            "FrameToTime_2.fps"
+            ],
+          "LarmorSound_Sync.frame" : [
+            "timeline"
+            ],
+          "LarmorSound_Sync.ls_position_out" : [
+            "ls_position"
+            ],
+          "LarmorSound.ls_obj" : [
+            "LarmorSound_Init.ls_obj"
+            ],
+          "Cache_1.value" : [
+            "LarmorSound_Sync.ls_obj",
+            "LarmorSound_Info.ls_obj",
+            "ls_obj"
+            ],
+          "LarmorSound_Init.ls_obj" : [
+            "Cache_1.value"
+            ],
+          "FrameToTime_2.time" : [
+            "GetLSPositions.time",
+            "time"
+            ],
+          "LarmorSound_Info.num_samples" : [
+            "num_samples"
+            ],
+          "LarmorSound_Info.samplerate" : [
+            "GetLSPositions.samplerate"
+            ],
+          "LarmorSound_Info.num_channels" : [
+            "num_channels"
+            ],
+          "GetLSPositions.ls_position" : [
+            "LarmorSound_Sync.ls_position"
+            ]
+          }
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-528.702830791,\"y\":123.900655508}"
+        },
+      "name" : "LarmorSound_Energy_ch0",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "name" : "exec",
+          "nodePortType" : "IO"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "ls_obj",
+          "nodePortType" : "In"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "ls_position",
+          "nodePortType" : "In"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "num_channel",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "UInt8" : 0
+            }
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "energy",
+          "nodePortType" : "Out"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "metadata" : {
+          "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+          "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }"
+          },
+        "title" : "LarmorSound_Energy",
+        "ports" : [
+          {
+            "objectType" : "ExecPort",
+            "name" : "exec",
+            "nodePortType" : "IO",
+            "execPortType" : "IO",
+            "typeSpec" : "Execute"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "ls_obj",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "LarmorSound"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "ls_position",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "UInt32"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "num_channel",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "UInt8"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "energy",
+            "nodePortType" : "In",
+            "execPortType" : "Out",
+            "typeSpec" : "Float32"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {
+  energy = ls_obj.getChannelEnergy(num_channel, ls_position);
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-521.018497705,\"y\":542.908337831}"
+        },
+      "name" : "LarmorSound_Spectrum_ch0",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "name" : "exec",
+          "nodePortType" : "IO"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "ls_obj",
+          "nodePortType" : "In"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "ls_position",
+          "nodePortType" : "In"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "num_channel",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "UInt8" : 0
+            }
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "spectrum",
+          "nodePortType" : "Out"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "metadata" : {
+          "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+          "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }"
+          },
+        "title" : "LarmorSound_Energy",
+        "ports" : [
+          {
+            "objectType" : "ExecPort",
+            "name" : "exec",
+            "nodePortType" : "IO",
+            "execPortType" : "IO",
+            "typeSpec" : "Execute"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "ls_obj",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "LarmorSound"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "ls_position",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "UInt32"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "num_channel",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "UInt8"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "spectrum",
+            "nodePortType" : "In",
+            "execPortType" : "Out",
+            "typeSpec" : "Float32<>"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {
+  spectrum = ls_obj.getChannelSpectrum(num_channel, ls_position);
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-521.1833536619999,\"y\":679.361096621}"
+        },
+      "name" : "LarmorSound_Spectrum_ch1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "name" : "exec",
+          "nodePortType" : "IO"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "ls_obj",
+          "nodePortType" : "In"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "ls_position",
+          "nodePortType" : "In"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "num_channel",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "UInt8" : 1
+            }
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "spectrum",
+          "nodePortType" : "Out"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "metadata" : {
+          "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+          "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }"
+          },
+        "title" : "LarmorSound_Energy",
+        "ports" : [
+          {
+            "objectType" : "ExecPort",
+            "name" : "exec",
+            "nodePortType" : "IO",
+            "execPortType" : "IO",
+            "typeSpec" : "Execute"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "ls_obj",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "LarmorSound"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "ls_position",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "UInt32"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "num_channel",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "UInt8"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "spectrum",
+            "nodePortType" : "In",
+            "execPortType" : "Out",
+            "typeSpec" : "Float32<>"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {
+  spectrum = ls_obj.getChannelSpectrum(num_channel, ls_position);
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-521.61628294,\"y\":264.774582148}"
+        },
+      "name" : "LarmorSound_Energy_ch1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "name" : "exec",
+          "nodePortType" : "IO"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "ls_obj",
+          "nodePortType" : "In"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "ls_position",
+          "nodePortType" : "In"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "num_channel",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "UInt8" : 1
+            }
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "energy",
+          "nodePortType" : "Out"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "metadata" : {
+          "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+          "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }"
+          },
+        "title" : "LarmorSound_Energy",
+        "ports" : [
+          {
+            "objectType" : "ExecPort",
+            "name" : "exec",
+            "nodePortType" : "IO",
+            "execPortType" : "IO",
+            "typeSpec" : "Execute"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "ls_obj",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "LarmorSound"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "ls_position",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "UInt32"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "num_channel",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "UInt8"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "energy",
+            "nodePortType" : "In",
+            "execPortType" : "Out",
+            "typeSpec" : "Float32"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {
+  energy = ls_obj.getChannelEnergy(num_channel, ls_position);
+}
+"
+        }
+      },
+    {
+      "objectType" : "User",
+      "metadata" : {
+        "uiTitle" : "Player",
+        "uiComment" : "LarmorSound v.1.0 Beta\nExtension for Fabric Engine v.2.3.1 \n\nCopyright (c) 2016 Pier Paolo Ciarravano\nhttp://www.larmor.com\nAll rights reserved.\n\nThis is a Fabric Canvas demo for LarmorSound v.1.0 Beta\n\nThis software is provided 'as-is', without any express or implied\nwarranty. In no event will the authors be held liable for any damages\narising from the use of this software.\n",
+        "uiGraphPos" : "{\"x\":-1192.82038689,\"y\":-169.839141846}",
+        "uiNodeColor" : "{\n  \"r\" : 255,\n  \"g\" : 255,\n  \"b\" : 127\n  }",
+        "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+        "uiCommentExpanded" : "true",
+        "uiGraphSize" : "{\"w\":384.336212158,\"h\":332.504394531}"
+        },
+      "name" : "backDrop",
+      "ports" : []
+      },
+    {
+      "objectType" : "User",
+      "metadata" : {
+        "uiTitle" : "Energy output",
+        "uiGraphPos" : "{\"x\":-551.910624981,\"y\":79.5430529118}",
+        "uiNodeColor" : "{\n  \"r\" : 156,\n  \"g\" : 104,\n  \"b\" : 0\n  }",
+        "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+        "uiGraphSize" : "{\"w\":623.028137207,\"h\":377.407226562}"
+        },
+      "name" : "backDrop_2",
+      "ports" : []
+      },
+    {
+      "objectType" : "User",
+      "metadata" : {
+        "uiTitle" : "Spectrum output",
+        "uiGraphPos" : "{\"x\":-546.744419336,\"y\":496.360242128}",
+        "uiNodeColor" : "{\n  \"r\" : 4,\n  \"g\" : 84,\n  \"b\" : 0\n  }",
+        "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+        "uiGraphSize" : "{\"w\":625.3913574220001,\"h\":367.953674316}"
+        },
+      "name" : "backDrop_3",
+      "ports" : []
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":194.920049667,\"y\":385.556712151}"
+        },
+      "name" : "mesh_builder",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "name" : "exec",
+          "nodePortType" : "IO"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "amp",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 21
+            }
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "this",
+          "nodePortType" : "Out"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "spectrum",
+          "nodePortType" : "In"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Graph",
+        "metadata" : {
+          "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+          "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
+          "uiGraphZoom" : "{\n  \"value\" : 0.8305839896202087\n  }",
+          "uiGraphPan" : "{\n  \"x\" : 197.2318267822266,\n  \"y\" : 50.90415191650391\n  }"
+          },
+        "title" : "mesh_anim",
+        "ports" : [
+          {
+            "objectType" : "ExecPort",
+            "name" : "exec",
+            "nodePortType" : "IO",
+            "execPortType" : "IO",
+            "typeSpec" : "Execute"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "amp",
+            "nodePortType" : "Out",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "this",
+            "nodePortType" : "In",
+            "execPortType" : "Out"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "spectrum",
+            "nodePortType" : "Out",
+            "defaultValues" : {
+              "Float32<>" : []
+              },
+            "execPortType" : "In",
+            "typeSpec" : "Float32[]"
+            }
+          ],
+        "extDeps" : {},
+        "nodes" : [
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":94.45297050480001,\"y\":80.02896857259999}"
+              },
+            "name" : "create_plate_mesh",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "name" : "exec",
+                "nodePortType" : "IO"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "mesh",
+                "nodePortType" : "Out"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "amp",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Float32" : 33
+                  }
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "spectrum",
+                "nodePortType" : "In"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "metadata" : {
+                "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+                "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }"
+                },
+              "title" : "create_mesh",
+              "ports" : [
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "exec",
+                  "nodePortType" : "IO",
+                  "execPortType" : "IO",
+                  "typeSpec" : "Execute"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "mesh",
+                  "nodePortType" : "In",
+                  "execPortType" : "Out",
+                  "typeSpec" : "PolygonMesh"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "amp",
+                  "nodePortType" : "Out",
+                  "execPortType" : "In",
+                  "typeSpec" : "Float32"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "spectrum",
+                  "nodePortType" : "Out",
+                  "execPortType" : "In",
+                  "typeSpec" : "Float32[]"
+                  }
+                ],
+              "extDeps" : {},
+              "code" : "require Geometry;
+require Math;
+
+operator smooth<<<ind>>>(io Float32[] results) {
+  if( ind == (results.size()-1)) {
+    results[ind] = results[ind];
+  } else if(ind == 0) {
+    results[ind] = results[ind];
+  } else {
+    Float32 p1 = results[ind].linearInterpolate(results[ind-1],0.5);
+    Float32 p2 = results[ind].linearInterpolate(results[ind+1],0.5);
+    Float32 p3 = p1.linearInterpolate(p2,0.5);
+    results[ind] = results[ind].linearInterpolate(p3,0.5);
+  }
+}
+
+dfgEntry {
+     
+      // Smooth spectrum
+      Size multi = 10;
+      Size iterations = 500;
+      Float32 spectrumSmooth[];
+      for(Size i = 0; i < spectrum.size(); i++) {
+        for(Size j = 0; j < multi; j++) {
+          spectrumSmooth.push(spectrum[i]);
+        }
+      }  
+      for(Size i = 0; i < iterations; i++) {
+        smooth<<<spectrumSmooth.size()>>>(spectrumSmooth);
+      }
+
+      // build mesh
+      mesh = PolygonMesh();
+      mesh.beginStructureChanges();
+      
+      Float32 s = 1.0;
+      UInt32 pn = 0;
+      UInt32 xd = 200;
+      UInt32 zd = 200;
+      Size firstPoint = mesh.createPoints(xd*zd);
+      for(UInt32 x = 0; x < xd; x++)
+      {
+        for(UInt32 z = 0; z < zd; z++)
+        {
+          Float64 xx = x*s -(xd*s/2.0);
+          Float64 zz = z*s -(zd*s/2.0);
+          Float64 rq = xx*xx+zz*zz;
+          Float64 rr = sqrt(rq);
+          
+          Float64 yy = 0.0;
+          yy = yy + cos(rr*(amp/2000.0))*0.1; 
+          //yy = yy * cos(rr*0.5)*1.0;
+          if (rr*multi < 5000.0) {
+            Float32 val = spectrumSmooth[Integer(rr*multi)] / 3.0;
+            if ((rr > 0.0) && ( rr < 500.0)) {
+              yy = yy + val ;
+            }
+          }
+          yy = yy + (amp/150.0)*pow(amp, ( -(rr/30.0 * rr/30.0) / 100.0*(amp/300.0)  ) );
+          
+          // Close disk
+          Float32 rr_max = (xd / 2.0 -1.0);
+          if (rr > rr_max) {
+            xx = xx/rr * rr_max;
+            zz = zz/rr * rr_max;
+            yy = cos(rr_max*(amp/2000.0))*0.1; 
+            if (rr_max*multi < 5000.0) {
+              Float32 val = spectrumSmooth[Integer(rr_max*multi)] / 3.0;
+              if ( rr_max < 500.0 ) {
+                yy = yy + val ;
+              }
+            }
+            yy = yy + (amp/150.0)*pow(amp, ( -(rr_max/30.0 * rr_max/30.0) / 100.0*(amp/300.0)  ) );
+          }         
+          
+          mesh.setPointPosition( pn, Vec3( xx, yy, zz) );
+ 
+          pn++;
+        }
+      }
+      
+      for(UInt32 xp = 0; xp < xd-1; xp++)
+      {
+        for(UInt32 zp = 0; zp < zd-1; zp++)
+        {
+          mesh.addPolygon( zp+(xp*zd), zp+1+(xp*zd), zp+1+zd+(xp*zd), zp+zd+(xp*zd) );
+        }
+      }
+       
+      mesh.endStructureChanges();
+      mesh.recomputePointNormals();
+                  
+}
+"
+              }
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":334.860793352,\"y\":-36.139018774}"
+              },
+            "name" : "EmptyDrawingHandle_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "name" : "exec",
+                "nodePortType" : "IO"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "handle",
+                "nodePortType" : "Out"
+                }
+              ],
+            "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.EmptyDrawingHandle",
+            "presetGUID" : "2440020BA6A1CAB1CEB690A198F99C70"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":643.44772625,\"y\":38.4530405998}"
+              },
+            "name" : "DrawPolygonMesh_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "name" : "exec",
+                "nodePortType" : "IO"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "this",
+                "nodePortType" : "IO"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "name",
+                "nodePortType" : "In"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "color",
+                "nodePortType" : "In"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "specular",
+                "nodePortType" : "In"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "specFactor",
+                "nodePortType" : "In"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "transform",
+                "nodePortType" : "In"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "mesh",
+                "nodePortType" : "In"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "wireFrame",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Boolean" : false
+                  }
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "doubleSided",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Boolean" : false
+                  }
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "dummyResult",
+                "nodePortType" : "Out"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "instance",
+                "nodePortType" : "Out"
+                }
+              ],
+            "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.DrawPolygonMesh",
+            "presetGUID" : "88D132945A91B3FEB731B90CE41878AF"
+            }
+          ],
+        "connections" : {
+          "amp" : [
+            "create_plate_mesh.amp"
+            ],
+          "spectrum" : [
+            "create_plate_mesh.spectrum"
+            ],
+          "create_plate_mesh.mesh" : [
+            "DrawPolygonMesh_1.mesh"
+            ],
+          "EmptyDrawingHandle_1.handle" : [
+            "DrawPolygonMesh_1.this"
+            ],
+          "DrawPolygonMesh_1.this" : [
+            "this"
+            ]
+          }
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-162.773832321,\"y\":222.29800415}"
+        },
+      "name" : "energy_avg",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "name" : "exec",
+          "nodePortType" : "IO"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "channel_1",
+          "nodePortType" : "In"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "channel_2",
+          "nodePortType" : "In"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "output",
+          "nodePortType" : "Out"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "energy_avg",
+        "ports" : [
+          {
+            "objectType" : "ExecPort",
+            "name" : "exec",
+            "nodePortType" : "IO",
+            "execPortType" : "IO",
+            "typeSpec" : "Execute"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "channel_1",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "channel_2",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "output",
+            "nodePortType" : "In",
+            "execPortType" : "Out",
+            "typeSpec" : "Float32"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {
+  output = (channel_1 + channel_2) / 2.0;
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-163.457085609,\"y\":637.278808594}"
+        },
+      "name" : "spectrum_avg",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "name" : "exec",
+          "nodePortType" : "IO"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "spec_channel_1",
+          "nodePortType" : "In"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "spec_channel_2",
+          "nodePortType" : "In"
+          },
+        {
+          "objectType" : "InstPort",
+          "name" : "output",
+          "nodePortType" : "Out"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "spectrum_avg",
+        "ports" : [
+          {
+            "objectType" : "ExecPort",
+            "name" : "exec",
+            "nodePortType" : "IO",
+            "execPortType" : "IO",
+            "typeSpec" : "Execute"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "spec_channel_1",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "Float32<>"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "spec_channel_2",
+            "nodePortType" : "Out",
+            "execPortType" : "In",
+            "typeSpec" : "Float32<>"
+            },
+          {
+            "objectType" : "ExecPort",
+            "name" : "output",
+            "nodePortType" : "In",
+            "execPortType" : "Out",
+            "typeSpec" : "Float32[]"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {
+  
+  for(Size i = 0; i < spec_channel_1.size(); i++) {
+    Float32 val = (spec_channel_1[i] + spec_channel_2[i]) / 2.0;
+    output.push(val);
+  }
+
+}
+"
+        }
+      }
+    ],
+  "connections" : {
+    "timeline" : [
+      "LarmorSound_Player.timeline"
+      ],
+    "filename" : [
+      "LarmorSound_Player.filename"
+      ],
+    "batch_render_mode" : [
+      "LarmorSound_Player.batch_render_mode"
+      ],
+    "fps" : [
+      "LarmorSound_Player.fps"
+      ],
+    "LarmorSound_Player.timeline" : [
+      "frame"
+      ],
+    "LarmorSound_Player.time" : [
+      "time"
+      ],
+    "LarmorSound_Player.num_samples" : [
+      "num_samples"
+      ],
+    "LarmorSound_Player.num_channels" : [
+      "num_channels"
+      ],
+    "LarmorSound_Player.ls_position" : [
+      "ls_position",
+      "LarmorSound_Energy_ch0.ls_position",
+      "LarmorSound_Spectrum_ch0.ls_position",
+      "LarmorSound_Spectrum_ch1.ls_position",
+      "LarmorSound_Energy_ch1.ls_position"
+      ],
+    "LarmorSound_Player.ls_obj" : [
+      "LarmorSound_Energy_ch0.ls_obj",
+      "LarmorSound_Spectrum_ch0.ls_obj",
+      "LarmorSound_Spectrum_ch1.ls_obj",
+      "LarmorSound_Energy_ch1.ls_obj"
+      ],
+    "LarmorSound_Energy_ch0.energy" : [
+      "energy_avg.channel_1"
+      ],
+    "LarmorSound_Spectrum_ch0.spectrum" : [
+      "spectrum_avg.spec_channel_1"
+      ],
+    "LarmorSound_Spectrum_ch1.spectrum" : [
+      "spectrum_avg.spec_channel_2"
+      ],
+    "LarmorSound_Energy_ch1.energy" : [
+      "energy_avg.channel_2"
+      ],
+    "mesh_builder.this" : [
+      "this"
+      ],
+    "energy_avg.output" : [
+      "mesh_builder.amp"
+      ],
+    "spectrum_avg.output" : [
+      "mesh_builder.spectrum"
+      ]
+    },
+  "requiredPresets" : {
+    "Fabric.Core.Data.Cache" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 214,\n  \"g\" : 191,\n  \"b\" : 103\n  }",
+        "uiAlwaysShowDaisyChainPorts" : "true",
+        "uiHeaderColor" : "{\n  \"r\" : 188,\n  \"g\" : 129,\n  \"b\" : 83\n  }"
+        },
+      "title" : "Cache",
+      "cacheRule" : "always",
+      "ports" : [
+        {
+          "objectType" : "ExecPort",
+          "name" : "exec",
+          "nodePortType" : "IO",
+          "execPortType" : "IO",
+          "typeSpec" : "Execute"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "value",
+          "nodePortType" : "Out",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60",
+      "code" : "dfgEntry {
+}
+"
+      },
+    "Fabric.Compounds.Math.FrameToTime" : {
+      "objectType" : "Graph",
+      "metadata" : {
+        "uiTooltip" : "converts the input frame and framerate into time (in seconds)",
+        "uiGraphPan" : "{\"x\": 88, \"y\": -23}"
+        },
+      "title" : "FrameToTime",
+      "ports" : [
+        {
+          "objectType" : "ExecPort",
+          "name" : "exec",
+          "nodePortType" : "IO",
+          "execPortType" : "IO",
+          "typeSpec" : "Execute"
+          },
+        {
+          "objectType" : "ExecPort",
+          "metadata" : {
+            "uiRange" : "(0, 100)"
+            },
+          "name" : "frame",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Float64" : 0
+            },
+          "execPortType" : "In",
+          "typeSpec" : "Float64"
+          },
+        {
+          "objectType" : "ExecPort",
+          "metadata" : {
+            "uiRange" : "(1, 50)"
+            },
+          "name" : "fps",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Float64" : 24
+            },
+          "execPortType" : "In",
+          "typeSpec" : "Float64"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "time",
+          "nodePortType" : "In",
+          "execPortType" : "Out",
+          "typeSpec" : "Float64"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "FC97B76DD3597484D4308A5490FD1853",
+      "nodes" : [
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 273, \"y\": 124}",
+            "uiCollapsedState" : "2"
+            },
+          "name" : "MathMax",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "name" : "exec",
+              "nodePortType" : "IO"
+              },
+            {
+              "objectType" : "InstPort",
+              "name" : "val1",
+              "nodePortType" : "In"
+              },
+            {
+              "objectType" : "InstPort",
+              "name" : "val2",
+              "nodePortType" : "In",
+              "defaultValues" : {
+                "Float64" : 0.001000000047497451
+                }
+              },
+            {
+              "objectType" : "InstPort",
+              "name" : "result",
+              "nodePortType" : "Out"
+              }
+            ],
+          "executable" : "Fabric.Exts.Math.Func.Math_max",
+          "presetGUID" : "2BA355E40799979F7BA995D89A07F1A5"
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 415, \"y\": 51}"
+            },
+          "name" : "Div",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "name" : "exec",
+              "nodePortType" : "IO"
+              },
+            {
+              "objectType" : "InstPort",
+              "name" : "lhs",
+              "nodePortType" : "In"
+              },
+            {
+              "objectType" : "InstPort",
+              "name" : "rhs",
+              "nodePortType" : "In"
+              },
+            {
+              "objectType" : "InstPort",
+              "name" : "result",
+              "nodePortType" : "Out"
+              }
+            ],
+          "executable" : "Fabric.Core.Math.Div",
+          "presetGUID" : "695E8145F8F42293FBC88BD348869892"
+          }
+        ],
+      "connections" : {
+        "frame" : [
+          "Div.lhs"
+          ],
+        "fps" : [
+          "MathMax.val1"
+          ],
+        "MathMax.result" : [
+          "Div.rhs"
+          ],
+        "Div.result" : [
+          "time"
+          ]
+        }
+      },
+    "Fabric.Exts.Math.Func.Math_max" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
+        "uiTooltip" : "Returns the maximum of two scalar values\n\n Supported by Scalar,Float64"
+        },
+      "title" : "Math_max",
+      "ports" : [
+        {
+          "objectType" : "ExecPort",
+          "name" : "exec",
+          "nodePortType" : "IO",
+          "execPortType" : "IO",
+          "typeSpec" : "Execute"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "val1",
+          "nodePortType" : "Out",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "val2",
+          "nodePortType" : "Out",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "result",
+          "nodePortType" : "In",
+          "execPortType" : "Out",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {
+        "Math" : "*"
+        },
+      "presetGUID" : "2BA355E40799979F7BA995D89A07F1A5",
+      "code" : "require Math;
+
+dfgEntry {
+  result = Math_max(val1, val2);
+}
+"
+      },
+    "Fabric.Core.Math.Div" : {
+      "objectType" : "Func",
+      "title" : "Div",
+      "ports" : [
+        {
+          "objectType" : "ExecPort",
+          "name" : "exec",
+          "nodePortType" : "IO",
+          "execPortType" : "IO",
+          "typeSpec" : "Execute"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "lhs",
+          "nodePortType" : "Out",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "rhs",
+          "nodePortType" : "Out",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "result",
+          "nodePortType" : "In",
+          "execPortType" : "Out",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "695E8145F8F42293FBC88BD348869892",
+      "code" : "
+dfgEntry {
+	result = lhs / rhs;
+}
+"
+      },
+    "Fabric.Exts.InlineDrawing.DrawingHandle.EmptyDrawingHandle" : {
+      "objectType" : "Graph",
+      "title" : "EmptyDrawingHandle",
+      "cacheRule" : "never",
+      "ports" : [
+        {
+          "objectType" : "ExecPort",
+          "name" : "exec",
+          "nodePortType" : "IO",
+          "execPortType" : "IO",
+          "typeSpec" : "Execute"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "handle",
+          "nodePortType" : "In",
+          "execPortType" : "Out",
+          "typeSpec" : "DrawingHandle"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "2440020BA6A1CAB1CEB690A198F99C70",
+      "nodes" : [
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 894, \"y\": 100}"
+            },
+          "name" : "Clear",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "name" : "exec",
+              "nodePortType" : "IO"
+              },
+            {
+              "objectType" : "InstPort",
+              "name" : "this",
+              "nodePortType" : "IO"
+              }
+            ],
+          "cacheRule" : "never",
+          "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.Clear",
+          "presetGUID" : "39E8D81FA7C7C4A825877F16EFE3564F"
+          },
+        {
+          "objectType" : "Var",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\":567.0,\"y\":56.0}",
+            "uiCollapsedState" : "0"
+            },
+          "name" : "handleVar",
+          "ports" : [
+            {
+              "objectType" : "VarPort",
+              "name" : "value",
+              "nodePortType" : "IO"
+              }
+            ],
+          "dataType" : "DrawingHandle",
+          "extDep" : "InlineDrawing:*"
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\":287.0,\"y\":56.0}"
+            },
+          "name" : "CreateDrawingHandle",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "name" : "exec",
+              "nodePortType" : "IO"
+              },
+            {
+              "objectType" : "InstPort",
+              "name" : "handle",
+              "nodePortType" : "Out"
+              }
+            ],
+          "definition" : {
+            "objectType" : "Func",
+            "title" : "Create DrawingHandle",
+            "ports" : [
+              {
+                "objectType" : "ExecPort",
+                "name" : "exec",
+                "nodePortType" : "IO",
+                "execPortType" : "IO",
+                "typeSpec" : "Execute"
+                },
+              {
+                "objectType" : "ExecPort",
+                "name" : "handle",
+                "nodePortType" : "In",
+                "execPortType" : "Out",
+                "typeSpec" : "DrawingHandle"
+                }
+              ],
+            "extDeps" : {
+              "InlineDrawing" : "*"
+              },
+            "code" : "dfgEntry {
+  handle = DrawingHandle();
+}
+"
+            }
+          }
+        ],
+      "connections" : {
+        "Clear.this" : [
+          "handle"
+          ],
+        "handleVar.value" : [
+          "Clear.this"
+          ],
+        "CreateDrawingHandle.handle" : [
+          "handleVar.value"
+          ]
+        }
+      },
+    "Fabric.Exts.InlineDrawing.DrawingHandle.Clear" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.3.0/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
+        "uiTooltip" : "removes all contents from the DrawingHandle\n\n Supported by DrawingHandle"
+        },
+      "title" : "Clear",
+      "ports" : [
+        {
+          "objectType" : "ExecPort",
+          "name" : "exec",
+          "nodePortType" : "IO",
+          "execPortType" : "IO",
+          "typeSpec" : "Execute"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "this",
+          "nodePortType" : "IO",
+          "execPortType" : "IO",
+          "typeSpec" : "DrawingHandle"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "39E8D81FA7C7C4A825877F16EFE3564F",
+      "code" : "require InlineDrawing;
+
+dfgEntry {
+  this.clear();
+}
+"
+      },
+    "Fabric.Exts.InlineDrawing.DrawingHandle.DrawPolygonMesh" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.3.0/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
+        "uiTooltip" : "helper function to draw a mesh given a color + a single transform\n\n Supported by DrawingHandle"
+        },
+      "title" : "DrawPolygonMesh",
+      "ports" : [
+        {
+          "objectType" : "ExecPort",
+          "name" : "exec",
+          "nodePortType" : "IO",
+          "execPortType" : "IO",
+          "typeSpec" : "Execute"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "this",
+          "nodePortType" : "IO",
+          "execPortType" : "IO",
+          "typeSpec" : "DrawingHandle"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "name",
+          "nodePortType" : "Out",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "ExecPort",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 0,\n  \"b\" : 0\n  }"
+            },
+          "name" : "color",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0,
+              "g" : 1,
+              "b" : 0,
+              "a" : 1
+              }
+            },
+          "execPortType" : "In",
+          "typeSpec" : "Color"
+          },
+        {
+          "objectType" : "ExecPort",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 0,\n  \"b\" : 0\n  }"
+            },
+          "name" : "specular",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0.2000000029802322,
+              "g" : 0.2000000029802322,
+              "b" : 0.2000000029802322,
+              "a" : 1
+              }
+            },
+          "execPortType" : "In",
+          "typeSpec" : "Color"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "specFactor",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Float32" : 16
+            },
+          "execPortType" : "In",
+          "typeSpec" : "Float32"
+          },
+        {
+          "objectType" : "ExecPort",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "name" : "transform",
+          "nodePortType" : "Out",
+          "execPortType" : "In",
+          "typeSpec" : "Xfo"
+          },
+        {
+          "objectType" : "ExecPort",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 51,\n  \"g\" : 1,\n  \"b\" : 106\n  }"
+            },
+          "name" : "mesh",
+          "nodePortType" : "Out",
+          "execPortType" : "In",
+          "typeSpec" : "PolygonMesh"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "wireFrame",
+          "nodePortType" : "Out",
+          "execPortType" : "In",
+          "typeSpec" : "Boolean"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "doubleSided",
+          "nodePortType" : "Out",
+          "execPortType" : "In",
+          "typeSpec" : "Boolean"
+          },
+        {
+          "objectType" : "ExecPort",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "name" : "dummyResult",
+          "nodePortType" : "In",
+          "execPortType" : "Out",
+          "typeSpec" : "Vec3"
+          },
+        {
+          "objectType" : "ExecPort",
+          "name" : "instance",
+          "nodePortType" : "In",
+          "execPortType" : "Out",
+          "typeSpec" : "InlineInstance"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*",
+        "FabricInterfaces" : "*"
+        },
+      "presetGUID" : "88D132945A91B3FEB731B90CE41878AF",
+      "code" : "require InlineDrawing;
+
+dfgEntry {
+  this.drawPolygonMesh(name, color, specular, specFactor, transform, mesh, wireFrame, doubleSided, dummyResult, instance);
+}
+"
+      }
+    },
+  "args" : [
+    {
+      "type" : "SInt32",
+      "value" : null
+      },
+    {
+      "type" : "FilePath",
+      "value" : null,
+      "ext" : "FileIO"
+      },
+    {
+      "type" : "SInt32",
+      "value" : null
+      },
+    {
+      "type" : "UInt32",
+      "value" : null
+      },
+    {
+      "type" : "Float64",
+      "value" : null
+      },
+    {
+      "type" : "UInt32",
+      "value" : null
+      },
+    {
+      "type" : "UInt8",
+      "value" : null
+      },
+    {
+      "type" : "DrawingHandle",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "Boolean",
+      "value" : false
+      },
+    {
+      "type" : "Float64",
+      "value" : 24
+      }
+    ]
+  }

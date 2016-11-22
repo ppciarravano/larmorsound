@@ -4,12 +4,12 @@
     "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9967910051345825,\n    \"y\" : 0.01662108302116394,\n    \"z\" : -0.07778409123420715,\n    \"t\" : -10.18623638153076\n    },\n  \"row1\" : {\n    \"x\" : 8.474691526316747e-08,\n    \"y\" : 0.9778347015380859,\n    \"z\" : 0.2089711576700211,\n    \"t\" : 34.90440368652344\n    },\n  \"row2\" : {\n    \"x\" : 0.07953944057226181,\n    \"y\" : -0.208296999335289,\n    \"z\" : 0.9747927188873291,\n    \"t\" : 60.05514526367188\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "0",
-    "uiGraphZoom" : "{\n  \"value\" : 0.08767789602279663\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.1939876228570938\n  }",
     "timeline_simMode" : "0",
     "camera_focalDistance" : "69.65589141845703",
     "timeline_current" : "1",
     "timeline_end" : "4000",
-    "uiGraphPan" : "{\n  \"x\" : 408.4981942821233,\n  \"y\" : 63.57288508542335\n  }"
+    "uiGraphPan" : "{\n  \"x\" : 573.37353515625,\n  \"y\" : 140.8030395507812\n  }"
     },
   "title" : "",
   "ports" : [
@@ -191,8 +191,8 @@
       "definition" : {
         "objectType" : "Graph",
         "metadata" : {
-          "uiGraphZoom" : "{\n  \"value\" : 0.4574091136455536\n  }",
-          "uiGraphPan" : "{\n  \"x\" : 299.5921020507812,\n  \"y\" : 183.4015197753906\n  }"
+          "uiGraphZoom" : "{\n  \"value\" : 0.3828827440738678\n  }",
+          "uiGraphPan" : "{\n  \"x\" : 332.9746704101562,\n  \"y\" : 174.3748626708984\n  }"
           },
         "title" : "LarmorSound_Player",
         "ports" : [
@@ -255,7 +255,7 @@
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":846.4498708249999,\"y\":-94.3290634155}"
+              "uiGraphPos" : "{\"x\":889.271501541,\"y\":-59.663816452}"
               },
             "name" : "LarmorSound_Sync",
             "ports" : [
@@ -527,7 +527,7 @@ dfgEntry {
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":483.532172203,\"y\":79.6601595879}"
+              "uiGraphPos" : "{\"x\":440.072687149,\"y\":84.006102562}"
               },
             "name" : "LarmorSound_Info",
             "ports" : [
@@ -609,40 +609,6 @@ dfgEntry {
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":712.253911495,\"y\":239.978363037}"
-              },
-            "name" : "Mul_1",
-            "ports" : [
-              {
-                "objectType" : "InstPort",
-                "name" : "exec",
-                "nodePortType" : "IO"
-                },
-              {
-                "objectType" : "InstPort",
-                "name" : "lhs",
-                "nodePortType" : "In",
-                "defaultValues" : {
-                  "Float64" : 10000
-                  }
-                },
-              {
-                "objectType" : "InstPort",
-                "name" : "rhs",
-                "nodePortType" : "In"
-                },
-              {
-                "objectType" : "InstPort",
-                "name" : "result",
-                "nodePortType" : "Out"
-                }
-              ],
-            "executable" : "Fabric.Core.Math.Mul",
-            "presetGUID" : "CC951B43BB879483B46EFF7965692350"
-            },
-          {
-            "objectType" : "Inst",
-            "metadata" : {
               "uiGraphPos" : "{\"x\":600.612964153,\"y\":-211.428188086}"
               },
             "name" : "LarmorSound_HB",
@@ -697,6 +663,83 @@ dfgEntry {
 }
 "
               }
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":666.00847888,\"y\":233.24733305}"
+              },
+            "name" : "GetLSPositions",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "name" : "exec",
+                "nodePortType" : "IO"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "samplerate",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Float64" : 10000
+                  }
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "time",
+                "nodePortType" : "In"
+                },
+              {
+                "objectType" : "InstPort",
+                "name" : "ls_position",
+                "nodePortType" : "Out"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "metadata" : {
+                "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+                "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }"
+                },
+              "title" : "Mul",
+              "ports" : [
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "exec",
+                  "nodePortType" : "IO",
+                  "execPortType" : "IO",
+                  "typeSpec" : "Execute"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "samplerate",
+                  "nodePortType" : "Out",
+                  "execPortType" : "In",
+                  "typeSpec" : "UInt32"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "time",
+                  "nodePortType" : "Out",
+                  "execPortType" : "In",
+                  "typeSpec" : "Float64"
+                  },
+                {
+                  "objectType" : "ExecPort",
+                  "name" : "ls_position",
+                  "nodePortType" : "In",
+                  "execPortType" : "Out",
+                  "typeSpec" : "UInt32"
+                  }
+                ],
+              "extDeps" : {},
+              "origPresetGUID" : "CC951B43BB879483B46EFF7965692350",
+              "code" : "
+dfgEntry {
+	ls_position = samplerate * time;
+}
+"
+              }
             }
           ],
         "connections" : {
@@ -723,23 +766,23 @@ dfgEntry {
             "Cache_1.value"
             ],
           "FrameToTime_2.time" : [
-            "Mul_1.rhs",
-            "time"
+            "time",
+            "GetLSPositions.time"
             ],
           "LarmorSound_Info.num_samples" : [
             "num_samples"
             ],
           "LarmorSound_Info.samplerate" : [
-            "Mul_1.lhs"
+            "GetLSPositions.samplerate"
             ],
           "LarmorSound_Info.num_channels" : [
             "num_channels"
             ],
-          "Mul_1.result" : [
-            "LarmorSound_Sync.ls_position"
-            ],
           "LarmorSound_HB.ls_position" : [
             "ls_position"
+            ],
+          "GetLSPositions.ls_position" : [
+            "LarmorSound_Sync.ls_position"
             ]
           }
         }
@@ -4641,47 +4684,6 @@ dfgEntry {
 }
 "
       },
-    "Fabric.Core.Math.Mul" : {
-      "objectType" : "Func",
-      "title" : "Mul",
-      "ports" : [
-        {
-          "objectType" : "ExecPort",
-          "name" : "exec",
-          "nodePortType" : "IO",
-          "execPortType" : "IO",
-          "typeSpec" : "Execute"
-          },
-        {
-          "objectType" : "ExecPort",
-          "name" : "lhs",
-          "nodePortType" : "Out",
-          "execPortType" : "In",
-          "typeSpec" : "$TYPE$"
-          },
-        {
-          "objectType" : "ExecPort",
-          "name" : "rhs",
-          "nodePortType" : "Out",
-          "execPortType" : "In",
-          "typeSpec" : "$TYPE$"
-          },
-        {
-          "objectType" : "ExecPort",
-          "name" : "result",
-          "nodePortType" : "In",
-          "execPortType" : "Out",
-          "typeSpec" : "$TYPE$"
-          }
-        ],
-      "extDeps" : {},
-      "presetGUID" : "CC951B43BB879483B46EFF7965692350",
-      "code" : "
-dfgEntry {
-	result = lhs * rhs;
-}
-"
-      },
     "Fabric.Compounds.PolygonMesh.Create.GetCube" : {
       "objectType" : "Graph",
       "metadata" : {
@@ -6973,7 +6975,7 @@ dfgEntry {
       },
     {
       "type" : "FilePath",
-      "value" : "/home/test/sample.mp3",
+      "value" : null,
       "ext" : "FileIO"
       },
     {
