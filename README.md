@@ -4,8 +4,8 @@ Sound spectrum, samples and playback extension for [Fabric Engine](http://fabric
 
 Author: Pier Paolo Ciarravano [http://www.larmor.com](http://www.larmor.com)
 
-[Watch the video demo: LarmorSound on Fabric Canvas https://vimeo.com/190653588](https://vimeo.com/190653588)
-and [Watch the video demo: LarmorSound on Fabric Canvas https://vimeo.com/190653588](https://vimeo.com/190653588)
+Watch the video demo: [LarmorSound on Windows Fabric Canvas and Maya https://vimeo.com/192639511](https://vimeo.com/192639511)
+and [LarmorSound on Linux Fabric Canvas https://vimeo.com/190653588](https://vimeo.com/190653588)
 
 ### Features:
 
