@@ -7,6 +7,8 @@ Author: Pier Paolo Ciarravano [http://www.larmor.com](http://www.larmor.com)
 Watch the video demo: [LarmorSound on Windows Fabric Canvas and Maya https://vimeo.com/192639511](https://vimeo.com/192639511)
 and [LarmorSound on Linux Fabric Canvas https://vimeo.com/190653588](https://vimeo.com/190653588)
 
+**Notice:** the Beta version builds for Linux and Windows are expired on 31st March 2017. If you are interested in the new build please [contact me](http://www.larmor.com/contact/) for further information.
+
 ### Features:
 
 * Extracts audio from all media file types: wav, mp3, mp4, mkv, mts, etc.
@@ -97,6 +99,6 @@ accordance with the commercial license agreement provided with the
 software.
 
 
-Source code is provided on email request.
+Source code is provided on [email](http://www.larmor.com/contact/) request.
 
 ---
