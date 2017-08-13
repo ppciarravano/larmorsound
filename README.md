@@ -7,7 +7,7 @@ Author: Pier Paolo Ciarravano [http://www.larmor.com](http://www.larmor.com)
 Watch the video demo: [LarmorSound on Windows Fabric Canvas and Maya https://vimeo.com/192639511](https://vimeo.com/192639511)
 and [LarmorSound on Linux Fabric Canvas https://vimeo.com/190653588](https://vimeo.com/190653588)
 
-**Notice:** the Beta version builds for Linux and Windows are expired on 31st March 2017. If you are interested in the new build please [contact me](http://www.larmor.com/contact/) for further information.
+**Notice:** the Beta version builds for Linux and Windows are expired on 31st March 2017. If you are interested in the new build please [contact me](http://www.larmor.com/menu/contact.html) for further information.
 
 ### Features:
 
