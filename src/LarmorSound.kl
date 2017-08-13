@@ -1,0 +1,74 @@
+/*****************************************************************************
+ * LarmorSound for FabricEngine v.1.0 Beta 04/11/2016
+ * Copyright (c) 2016 Pier Paolo Ciarravano - http://www.larmor.com
+ * All rights reserved.
+ *
+ * This file is part of LarmorSound Fabric Engine Extension.
+ *
+ * Author: Pier Paolo Ciarravano
+ *
+ * This software is provided 'as-is', without any express or implied
+ * warranty. In no event will the authors be held liable for any damages
+ * arising from the use of this software.
+ *
+ ****************************************************************************/
+
+interface LarmorSound_Interface
+{
+    public UInt32 getNumSamples();
+    public UInt32 getSamplerate();
+    public UInt8 getNumChannels();
+    public Float32<> getChannelSample(UInt8 numChannel);
+    public Float32<> getChannelSpectrum(UInt8 numChannel, UInt32 position);
+    public Float32 getChannelEnergy(UInt8 numChannel, UInt32 position);
+    public Boolean initPlay();
+    public Boolean play(UInt32 startPosition);
+    public Boolean play();
+    public Boolean stop();
+    public Boolean isInitedPlay();
+    public Boolean isPlaying();
+    public UInt32 getPlayPosition();
+    public Boolean closePlay();
+    public setHeartbeatActive(Boolean active, UInt64 heartbeatThreshold);
+    public setHeartbeatActive(Boolean active);
+    public Boolean isHeartbeatActive();
+    public heartbeat();
+
+};
+
+object LarmorSound : LarmorSound_Interface
+{
+    private Data pointer;
+};
+
+LarmorSound(String filename) = "LarmorSound_construct";
+~LarmorSound() = "LarmorSound_destroy";
+UInt32 LarmorSound.getNumSamples() = "LarmorSound_getNumSamples";
+UInt32 LarmorSound.getSamplerate() = "LarmorSound_getSamplerate";
+UInt8 LarmorSound.getNumChannels() = "LarmorSound_getNumChannels";
+Float32<> LarmorSound.getChannelSample(UInt8 numChannel) = "LarmorSound_getChannelSample";
+Float32<> LarmorSound.getChannelSpectrum(UInt8 numChannel, UInt32 position) = "LarmorSound_getChannelSpectrum";
+Float32 LarmorSound.getChannelEnergy(UInt8 numChannel, UInt32 position) = "LarmorSound_getChannelEnergy";
+Boolean LarmorSound.initPlay() = "LarmorSound_initPlay";
+Boolean LarmorSound.play(UInt32 startPosition) = "LarmorSound_play_startPosition";
+Boolean LarmorSound.play() = "LarmorSound_play";
+Boolean LarmorSound.stop() = "LarmorSound_stop";
+Boolean LarmorSound.isInitedPlay() = "LarmorSound_isInitedPlay";
+Boolean LarmorSound.isPlaying() = "LarmorSound_isPlaying";
+UInt32 LarmorSound.getPlayPosition() = "LarmorSound_getPlayPosition";
+Boolean LarmorSound.closePlay() = "LarmorSound_closePlay";
+LarmorSound.setHeartbeatActive(Boolean active, UInt64 heartbeatThreshold) = "LarmorSound_setHeartbeatActive";
+LarmorSound.setHeartbeatActive(Boolean active) = "LarmorSound_setHeartbeatActiveDefault";
+Boolean LarmorSound.isHeartbeatActive() = "LarmorSound_isHeartbeatActive";
+LarmorSound.heartbeat() = "LarmorSound_heartbeat";
+
+object LarmorSound_Counter {
+  UInt64 frame;
+  UInt64 time;
+};
+
+function LarmorSound_Counter() {
+  this.frame = 0;
+  this.time = 0;
+}
+

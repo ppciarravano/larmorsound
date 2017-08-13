@@ -1,0 +1,41 @@
+
+
+require LarmorSound;
+require Singletons;
+
+
+operator entry() {
+
+    LarmorSound_Counter counter = LarmorSound_Counter();
+    report("frame: " + counter.frame);
+    counter.frame = 323;
+    report("frame: " + counter.frame);
+    Singleton_set('larmorcounter', counter);
+
+    //Object creation
+    LarmorSound ls = LarmorSound("/home/larmor/DEVELOP/FabricSound_proj/samples/liz.mp3");
+    Float32 samples<> = ls.getChannelSample(0);
+    report("SIZE: " + samples.size());
+    for(Size i = 0; i < 10; i++) {
+        report("ELEM: " + i + " --> " + samples[i]);
+    }
+    ls.initPlay();
+    ls.setHeartbeatActive(true);
+    ls.play(0);
+    
+    while(ls.isPlaying()) {
+        ls.heartbeat();
+        
+        UInt32 position = ls.getPlayPosition();
+        report("POSITION: " + ls.getPlayPosition());
+        Float32 spectrum<> = ls.getChannelSpectrum(0, position);
+        report("spectrum SIZE: " + spectrum.size());
+        Float32 energy = ls.getChannelEnergy(0, position);
+        report("ENERGY: " + energy);
+        for(Size i = 0; i < 3; i++) {
+            report("SPECT ELEM: " + i + " --> " + spectrum[i]);
+        }
+        
+    }
+
+}

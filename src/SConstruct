@@ -1,0 +1,36 @@
+##############################################################################
+#
+# LarmorSound for FabricEngine v.1.0 Beta 04/11/2016
+# Copyright (c) 2016 Pier Paolo Ciarravano - http://www.larmor.com
+# All rights reserved.
+#
+# This file is part of LarmorSound Fabric Engine Extension.
+#
+# Author: Pier Paolo Ciarravano
+#
+# This software is provided 'as-is', without any express or implied
+# warranty. In no event will the authors be held liable for any damages
+# arising from the use of this software.
+#
+##############################################################################
+
+import os, sys
+
+try:
+  fabricPath = os.environ['FABRIC_DIR']
+except:
+  print "You must set FABRIC_DIR in your environment."
+  print "Refer to README.txt for more information."
+  sys.exit(1)
+SConscript(os.path.join(fabricPath, 'Samples', 'EDK', 'SConscript'))
+Import('fabricBuildEnv')
+
+fabricBuildEnv.Append(CPPPATH = ['/home/larmor/DEVELOP/FabricSound_proj/LarmorSoundAPI'])
+fabricBuildEnv.Append(LIBS = ['LarmorSoundAPI-Linux-x86_64'], LIBPATH=['/home/larmor/DEVELOP/FabricSound_proj/LarmorSoundAPI/build_lib'])
+fabricBuildEnv.Append(LIBS = ['aubio'], LIBPATH=['/home/larmor/DEVELOP/FabricSound_proj/aubio/aubio-0.4.3/build/src'])
+fabricBuildEnv.Append(LIBS = ['SDL2'])
+
+fabricBuildEnv.Extension(
+  'LarmorSound',
+  ['LarmorSound.cpp', 'LarmorSound.kl']
+  )

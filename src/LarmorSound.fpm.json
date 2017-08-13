@@ -1,0 +1,5 @@
+{
+    "version": "1.0.0",
+    "libs": [ "LarmorSound" ],
+    "code": "LarmorSound.kl"
+}

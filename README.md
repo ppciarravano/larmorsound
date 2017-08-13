@@ -26,6 +26,8 @@ and [LarmorSound on Linux Fabric Canvas https://vimeo.com/190653588](https://vim
 
 The extension is available for Windows and Linux x86_64, and it will be available for Max OS X on January 2017.
 
+This project uses [LarmorSound API C++ v.1.0 Beta](https://github.com/ppciarravano/larmorsound-api).
+
 
 ### Installation for Fabric Engine 2.3.1 on Windows x86_64:
 
@@ -97,8 +99,5 @@ along with LarmorSound. If not, see <http://www.gnu.org/licenses/>.
 Licensees holding a valid commercial license may use this file in
 accordance with the commercial license agreement provided with the
 software.
-
-
-Source code is provided on [email](http://www.larmor.com/contact/) request.
 
 ---
